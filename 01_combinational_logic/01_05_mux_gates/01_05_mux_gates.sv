@@ -62,10 +62,17 @@ module mux_4_1
   output [3:0] y
 );
 
+  logic sel0, sel1, sel2, sel3;
+
+  assign sel0 = ~sel[0] & ~sel[1];
+  assign sel1 =  sel[0] & ~sel[1];
+  assign sel2 = ~sel[0] &  sel[1];
+  assign sel3 =  sel[0] &  sel[1];
+
   // Task:
   // Using code for mux_2_1_width_1, mux_2_1_width_2,
   // mux_4_1_width_1 as examples,
   // write code for 4:1 mux using only &, | and ~ operations.
-
+assign y = (d0 & {4{sel0}}) | (d1 & {4{sel1}}) | (d2 & {4{sel2}}) | (d3 & {4{sel3}});
 
 endmodule

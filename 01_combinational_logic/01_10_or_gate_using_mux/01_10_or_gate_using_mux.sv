@@ -30,4 +30,11 @@ module or_gate_using_mux
   // constants 0 and 1, and wire connections
 
 
+mux uut(
+  .d0(b),
+  .d1(1),
+  .sel(a),
+  .y(o)
+);
+
 endmodule
